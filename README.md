@@ -18,6 +18,12 @@ The output will be a file called `reviews.json` in the root of your repository.
 
 The types in this JSON file are defined here: [Please see `ReviewResponse` type.](./src/types.ts)
 
+## Gotchas
+
+Please ensure that you run this action _AFTER_ any action that would modify files in the working directory as such actions may end up deleting the output from this action!
+
+Such actions include: `actions/checkout@v2`!
+
 # Developers
 
 To test this action simply:
