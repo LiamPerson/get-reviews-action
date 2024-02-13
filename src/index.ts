@@ -2,9 +2,9 @@ import * as core from '@actions/core'
 import { ReviewResponse } from './types'
 require('dotenv').config() // Only used in dev!!!
 
-const accessToken = core.getInput() || process.env.GITHUB_TOKEN
-const pullRequestId = process.env.PULL_REQUEST_ID
-const githubRepository = process.env.GITHUB_REPOSITORY
+const accessToken = core.getInput('GITHUB_TOKEN') || process.env.GITHUB_TOKEN
+const pullRequestId = core.getInput('PULL_REQUEST_ID') || process.env.PULL_REQUEST_ID
+const githubRepository = core.getInput('GITHUB_REPOSITORY') || process.env.GITHUB_REPOSITORY
 
 if (!accessToken)
 	throw new Error(
