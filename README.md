@@ -8,7 +8,8 @@ Simply add the action to your GitHub Action / Workflow.
 
 ```yaml
 - name: Get GitHub Pull Request Reviewers
-  uses: LiamPerson/get-reviews-action@v1.1
+  # Versions come from https://github.com/LiamPerson/get-reviews-action/releases
+  uses: LiamPerson/get-reviews-action@SPECIFY_ME # Specify the version you want by writing in a tag from the link above. E.g: v1.0
 ```
 
 The output will be a file called `reviews.json` in the root of your repository.
