@@ -25143,7 +25143,7 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
     console.log('Successfully got all reviews. Dumping all data to: ', filename);
     (0, node_fs_1.writeFileSync)(filename, JSON.stringify(reviews, null, 2));
     console.log('Successfully dumped all data to: ', filename);
-    core.setOutput('reviews_file', filename);
+    core.setOutput('reviews_file_path', filename);
 });
 run();
 

@@ -16,7 +16,7 @@ inputs:
     required: false
 
 outputs:
-  reviews_file:
+  reviews_file_path:
     description: 'The path to the newly created json file containing all the reviews of the specified pull request'
 runs:
   using: 'node20'

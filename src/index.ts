@@ -40,7 +40,7 @@ const run = async () => {
 	console.log('Successfully got all reviews. Dumping all data to: ', filename)
 	writeFileSync(filename, JSON.stringify(reviews, null, 2))
 	console.log('Successfully dumped all data to: ', filename)
-	core.setOutput('reviews_file', filename)
+	core.setOutput('reviews_file_path', filename)
 }
 
 run()
