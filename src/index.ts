@@ -1,10 +1,12 @@
 import * as core from '@actions/core'
 import { ReviewResponse } from './types'
+import { writeFileSync } from 'node:fs'
 require('dotenv').config() // Only used in dev!!!
 
 const accessToken = core.getInput('GITHUB_TOKEN') || process.env.GITHUB_TOKEN
 const pullRequestId = core.getInput('PULL_REQUEST_ID') || process.env.PULL_REQUEST_ID
 const githubRepository = core.getInput('GITHUB_REPOSITORY') || process.env.GITHUB_REPOSITORY
+const filename = core.getInput('FILE_NAME_OVERRIDE') || 'reviews.json'
 
 if (!accessToken)
 	throw new Error(
@@ -33,9 +35,12 @@ const run = async () => {
 		)
 	}
 	const reviews = (await response.json()) as ReviewResponse[]
-	const approvals = reviews.filter((review) => review.state === 'APPROVED').map((review) => review.user.login)
-	console.log('approvals', approvals)
-	core.setOutput('approvals', JSON.stringify(approvals))
+
+	// Write the json to a file
+	console.log('Successfully got all reviews. Dumping all data to: ', filename)
+	writeFileSync(filename, JSON.stringify(reviews, null, 2))
+	console.log('Successfully dumped all data to: ', filename)
+	core.setOutput('reviews_file', filename)
 }
 
 run()
