@@ -25140,6 +25140,9 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
         throw new Error(`Unauthorized: Failed to get reviews. The provided access token does not have the authority to access the reviews at ${githubRepository}`);
     }
     const reviews = (yield response.json());
+    if ('message' in reviews) {
+        throw new Error(`Failed to get reviews: ${reviews.message}. For more information, see: ${reviews.documentation_url}`);
+    }
     console.log('Successfully got all reviews. Dumping all data to: ', filename);
     (0, node_fs_1.writeFileSync)(filename, JSON.stringify(reviews, null, 2));
     console.log('Successfully dumped all data to: ', filename);

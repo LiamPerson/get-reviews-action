@@ -3,6 +3,11 @@ import { ReviewResponse } from './types'
 import { writeFileSync } from 'node:fs'
 require('dotenv').config() // Only used in dev!!!
 
+type FailureResponse = {
+	message: string
+	documentation_url: string
+}
+
 const accessToken = core.getInput('GITHUB_TOKEN') || process.env.GITHUB_TOKEN
 const pullRequestId = core.getInput('PULL_REQUEST_ID') || process.env.PULL_REQUEST_ID
 const githubRepository = core.getInput('GITHUB_REPOSITORY') || process.env.GITHUB_REPOSITORY
@@ -34,7 +39,12 @@ const run = async () => {
 			`Unauthorized: Failed to get reviews. The provided access token does not have the authority to access the reviews at ${githubRepository}`
 		)
 	}
-	const reviews = (await response.json()) as ReviewResponse[]
+	const reviews = (await response.json()) as ReviewResponse[] | FailureResponse
+
+	// Catch failed requests. E.g: failed permissions
+	if ('message' in reviews) {
+		throw new Error(`Failed to get reviews: ${reviews.message}. For more information, see: ${reviews.documentation_url}`)
+	}
 
 	// Write the json to a file
 	console.log('Successfully got all reviews. Dumping all data to: ', filename)
