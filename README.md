@@ -1,6 +1,16 @@
 # get-reviews-action
 
-Gets the reviews associated with a specified pull request from the GitHub API
+Dumps to a JSON file, all the reviews associated with a specified pull request from the GitHub API.
+
+## Usage
+
+Simply add the action to your GitHub Action / Workflow.
+
+The output will be a file called `reviews.json` in the root of your repository.
+
+### Types
+
+The types in this JSON file are defined here: [Please see `ReviewResponse` type.](./src/types.ts)
 
 # Developers
 
