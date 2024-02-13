@@ -1,4 +1,4 @@
-name: 'Get GitHub Pull Request Reviewers'
+name: 'Get GitHub Pull Request Reviews'
 description: 'Dumps to a JSON file, all the reviews associated with a specified pull request from the GitHub API.'
 author: 'Liam Pillay'
 inputs:
