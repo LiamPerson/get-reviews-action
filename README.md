@@ -1,10 +1,15 @@
-# get-reviews-action
+# What does it do?
 
 Dumps to a JSON file, all the reviews associated with a specified pull request from the GitHub API.
 
 ## Usage
 
 Simply add the action to your GitHub Action / Workflow.
+
+```yaml
+- name: Get GitHub Pull Request Reviewers
+  uses: LiamPerson/get-reviews-action@v1.1
+```
 
 The output will be a file called `reviews.json` in the root of your repository.
 
