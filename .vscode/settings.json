@@ -1,0 +1,42 @@
+{
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"files.eol": "\n",
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"better-comments.tags": [
+		{
+			"tag": "@warning",
+			"color": "#FF8600",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "@important",
+			"color": "#3498DB",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		}
+	],
+	"cSpell.ignorePaths": [
+		"package.json",
+		"package.lock.json",
+		"node_modules",
+		"package.lock",
+		"yarn.lock",
+		".vscode/settings.json",
+		"gql/codegen",
+		"__snapshots__",
+		"fabric/font_urls.json",
+		".devcontainer",
+		"bun.lockb"
+	],
+	"cSpell.language": "en-US",
+	"cSpell.words": ["mrkdwn"]
+}

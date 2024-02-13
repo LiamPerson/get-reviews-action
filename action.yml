@@ -1,0 +1,19 @@
+name: 'Get Pull Request Approvers'
+description: 'Gets the usernames of the users who have approved a specified pull request'
+author: 'Liam Pillay'
+inputs:
+  WEBHOOK_URL:
+    description: 'The Slack webhook URL'
+    required: true
+  
+outputs:
+  version:
+    description: 'The version of the newly created release'
+  changelog_path:
+    description: 'The path to the newly created changelog file'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+branding:
+  icon: 'book-open'
+  color: 'purple'
