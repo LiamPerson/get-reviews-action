@@ -5,7 +5,8 @@
 	"description": "Dumps to a JSON file, all the reviews associated with a specified pull request from the GitHub API",
 	"main": "dist/index.js",
 	"scripts": {
-		"build": "tsc && ncc build src/index.ts"
+		"build": "tsc && ncc build src/index.ts",
+		"test": "ts-node src/index.ts"
 	},
 	"devDependencies": {
 		"@types/node": "^20.11.5",
