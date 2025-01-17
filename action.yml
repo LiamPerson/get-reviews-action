@@ -16,8 +16,8 @@ inputs:
   FILE_NAME_OVERRIDE:
     description: 'The name of the file to write the reviews to. Please ensure you add the file extension `.json`! If not provided, the file will be named `reviews.json`'
     required: false
-  MAXIMUM_QUERY_DEPTH:
-    description: 'The maximum amount of pages you want to query a pull request for reviews. Each page is 100 items. Must be a number.'
+  MAXIMUM_PAGES_TO_QUERY:
+    description: 'The maximum amount of pages you want to query a pull request for reviews. Each page is 100 comments to check for reviews. Must be a number.'
     required: false
     default: '10'
 
