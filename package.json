@@ -1,6 +1,5 @@
 {
 	"name": "get-reviews-action",
-	"version": "1.1.2",
 	"author": "Liam Pillay",
 	"description": "Dumps to a JSON file, all the reviews associated with a specified pull request from the GitHub API",
 	"main": "dist/index.js",
