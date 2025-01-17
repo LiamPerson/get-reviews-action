@@ -6,7 +6,8 @@
 	"main": "dist/index.js",
 	"scripts": {
 		"build": "tsc && ncc build src/index.ts",
-		"test": "ts-node src/index.ts"
+		"test": "ts-node src/index.ts",
+		"test-result": "ts-node src/test-reviewers.ts"
 	},
 	"devDependencies": {
 		"@types/node": "^20.11.5",
