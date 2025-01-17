@@ -26,8 +26,8 @@ if (!githubRepository)
 		'No "GITHUB_REPOSITORY" provided. Please ensure you have passed through the `GITHUB_REPOSITORY` in the GitHub Action calling this custom action.'
 	)
 
-const run = async () => {
-	const response = await fetch(`https://api.github.com/repos/${githubRepository}/pulls/${pullRequestId}/reviews`, {
+const getReviewData = async () => {
+	const response = await fetch(`https://api.github.com/repos/${githubRepository}/pulls/${pullRequestId}/reviews?per_page=100`, {
 		method: 'GET',
 		headers: {
 			Authorization: `Bearer ${accessToken}`,
@@ -45,6 +45,12 @@ const run = async () => {
 	if ('message' in reviews) {
 		throw new Error(`Failed to get reviews: ${reviews.message}. For more information, see: ${reviews.documentation_url}`)
 	}
+	
+	return reviews
+}
+
+const run = async () => {
+	const reviews = await getReviewData()
 
 	// Write the json to a file
 	console.log('Successfully got all reviews. Dumping all data to: ', filename)
